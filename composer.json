@@ -16,10 +16,10 @@
 
     "require": {
         "php": ">=5.4.0",
-        "illuminate/html": "5.0.*",
-        "illuminate/routing": "5.0.*",
-        "illuminate/http": "5.0.*",
-        "illuminate/support": "5.0.*"
+        "illuminate/html": "5.0.*@dev",
+        "illuminate/routing": "5.0.*@dev",
+        "illuminate/http": "5.0.*@dev",
+        "illuminate/support": "5.0.*@dev"
     },
 
     "require-dev": {
@@ -31,7 +31,6 @@
             "Illuminate\\Html\\": "src/",
             "Illuminate\\Support\\Facades\\": "facade/"
         }
-    },
+    }
 
-    "minimum-stability": "dev"
 }
