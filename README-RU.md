@@ -14,10 +14,10 @@ Laravel Menu Builder
 Установка с помощью Composer:
 
 ```
-composer require kalnoy/illuminate-menu:~1.0
+composer require kalnoy/illuminate-menu:~2.0@dev
 ```
 
-Добавте провайдер:
+Добавьте провайдер:
 
 ```php
 'providers' => [
@@ -39,7 +39,7 @@ composer require kalnoy/illuminate-menu:~1.0
 Вывод меню:
 
 ```php
-{{ Menu::render($items, $attributes) }}
+{!! Menu::render($items, $attributes) !!}
 ```
 
 Где `$attributes` необязательный параметр с атрибутами для тэга `ul`.
@@ -47,15 +47,15 @@ composer require kalnoy/illuminate-menu:~1.0
 Вывод только элементов меню без внешнего тэга:
 
 ```php
-<ul>{{ Menu::items($items) }}</ul>
+<ul>{!! Menu::items($items) !!}</ul>
 ```
 
 Вывод одного элемента меню:
 
 ```php
-{{ Menu::item($label, $url) }}
-{{ Menu::item($label, $options) }}
-{{ Menu::item($options) }}
+{!! Menu::item($label, $url) !!}
+{!! Menu::item($label, $options) !!}
+{!! Menu::item($options) !!}
 ```
 
 Список доступных опций доступен ниже.
@@ -63,18 +63,18 @@ composer require kalnoy/illuminate-menu:~1.0
 Простой пример:
 
 ```php
-Menu::render([
+{!! Menu::render([
     'Локальная ссылка' => 'bar',
     'Внешняя ссылка' => 'http://bar',
     [ 'label' => 'Локальная ссылка', 'url' => 'bar' ],
     'Ссылка на роут' => [ 'route' => [ 'route.name', 'foo' => 'bar' ] ],
-]);
+]) !!}
 ```
 
 Вывод элемента меню с выпадающим списком:
 
 ```php
-{{ Menu::item([
+{!! Menu::item([
     'label' => 'Настройки',
     'icon' => 'wrench',
     'items' => [
@@ -82,17 +82,17 @@ Menu::render([
         '-', // разделитель
         'Выйти' => [ 'route' => 'logout_path' ],
     ],
-]) }}
+]) !!}
 ```
 
 Управление видимостью элемента:
 
 ```php
-{{ Menu::item([
+{!! Menu::item([
     'label' => 'Foo',
     'url' => 'bar',
     'visible' => function () { return Config::get('app.debug'); },
-] }}
+] !!}
 ```
 
 #### Опции

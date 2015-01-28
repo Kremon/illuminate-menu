@@ -20,7 +20,7 @@ Installation
 Install using Composer:
 
 ```
-composer require kalnoy/illuminate-menu:~1.0
+composer require kalnoy/illuminate-menu:~2.0@dev
 ```
 
 Add a service provider:
@@ -45,7 +45,7 @@ Documentation
 Rendering a menu:
 
 ```php
-{{ Menu::render($items, $attributes) }}
+{!! Menu::render($items, $attributes) !!}
 ```
 
 Where `$attributes` is optional array of html attributes for `ul` element.
@@ -59,9 +59,9 @@ Rendering a list of menu items:
 Rendering a single menu item:
 
 ```php
-{{ Menu::item($label, $url) }}
-{{ Menu::item($label, $options) }}
-{{ Menu::item($options) }}
+{!! Menu::item($label, $url) !!}
+{!! Menu::item($label, $options) !!}
+{!! Menu::item($options) !!}
 ```
 
 See a list of available options [below](#item-options).
@@ -69,18 +69,18 @@ See a list of available options [below](#item-options).
 Basic example:
 
 ```php
-Menu::render([
+{!! Menu::render([
     'Link to url' => 'bar',
     'Link to external url' => 'http://bar',
     [ 'label' => 'Link to url', 'url' => 'bar' ],
     'Link to route' => [ 'route' => [ 'route.name', 'foo' => 'bar' ] ],
-]);
+]) !!}
 ```
 
 Rendering an item with a drop down menu:
 
 ```php
-{{ Menu::item([
+{!! Menu::item([
     'label' => 'Settings',
     'icon' => 'wrench',
     'items' => [
@@ -88,17 +88,17 @@ Rendering an item with a drop down menu:
         '-', // divider
         'Logout' => [ 'route' => 'logout_path' ],
     ],
-]) }}
+]) !!}
 ```
 
 Controlling whether the item is visible:
 
 ```php
-{{ Menu::item([
+{!! Menu::item([
     'label' => 'Foo',
     'url' => 'bar',
     'visible' => function () { return Config::get('app.debug'); },
-] }}
+] !!}
 ```
 
 #### Item options
